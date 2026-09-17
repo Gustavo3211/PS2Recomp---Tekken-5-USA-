@@ -1,0 +1,56 @@
+#include <stdexcept>
+#include "ps2_runtime_macros.h"
+#include "ps2_runtime.h"
+#include <ps2_recompiled_functions.h>
+#include <ps2_recompiled_stubs.h>
+
+#include "ps2_syscalls.h"
+#include "ps2_stubs.h"
+
+#ifdef PS2_FUNCTION_LOG_TRACKER
+#include "ps2_log.h"
+#endif
+
+// Function: sub_00247E98
+// Address: 0x247e98 - 0x247eb0
+void sub_00247E98_0x247e98(uint8_t* rdram, R5900Context* ctx, PS2Runtime *runtime) {
+#ifdef PS2_FUNCTION_LOG_TRACKER
+    PS_LOG_ENTRY("sub_00247E98_0x247e98");
+#endif
+
+    ctx->pc = 0x247e98u;
+
+    // 0x247e98: 0x3c020016  lui         $v0, 0x16
+    ctx->pc = 0x247e98u;
+    SET_GPR_S32(ctx, 2, (int32_t)((uint32_t)22 << 16));
+    // 0x247e9c: 0x24426fe0  addiu       $v0, $v0, 0x6FE0
+    ctx->pc = 0x247e9cu;
+    SET_GPR_S32(ctx, 2, (int32_t)ADD32(GPR_U32(ctx, 2), 28640));
+    // 0x247ea0: 0xac400018  sw          $zero, 0x18($v0)
+    ctx->pc = 0x247ea0u;
+    do { uint32_t _value = static_cast<uint32_t>(GPR_U32(ctx, 0)); ps2TraceGuestWrite(rdram, 0x166FF8u, 4u, _value, 0u, "WRITE32", ctx); FAST_WRITE32(0x166FF8u, _value); } while (0);
+    // 0x247ea4: 0x3e00008  jr          $ra
+    ctx->pc = 0x247EA4u;
+    {
+        const uint32_t jumpTarget = GPR_U32(ctx, 31);
+        ctx->pc = 0x247EA8u;
+        ctx->in_delay_slot = true;
+        ctx->branch_pc = 0x247EA4u;
+        // 0x247ea8: 0xac400014  sw          $zero, 0x14($v0) (Delay Slot)
+        WRITE32(ADD32(GPR_U32(ctx, 2), 20), GPR_U32(ctx, 0));
+        ctx->in_delay_slot = false;
+        ctx->pc = jumpTarget;
+        #if defined(PS2X_STRICT_RETURN_DIAGNOSTICS) && PS2X_STRICT_RETURN_DIAGNOSTICS
+        (void)runtime->dispatchGuestBranch(rdram, ctx, jumpTarget, 0x247EA4u, 0u, PS2Runtime::GuestBranchKind::Return, "JR $ra");
+        return;
+        #else
+        ctx->pc = jumpTarget;
+        return;
+        #endif
+    }
+    ctx->pc = 0x247EACu;
+    // 0x247eac: 0x0  nop
+    ctx->pc = 0x247eacu;
+    // NOP
+    ctx->pc = 0x247eb0u;
+}

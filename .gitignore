@@ -1,0 +1,68 @@
+# Binaries and Build Artifacts
+build/
+build-*/
+bin/
+lib/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+compile_commands.json
+.ninja_*
+
+# Game ISOs, Disc Dumps, ELFs and Raw Assets
+*.iso
+*.ISO
+*.zip
+*.ZIP
+*.7z
+*.rar
+*.bin
+*.BIN
+*.elf
+*.ELF
+*.raw
+*.dump
+SYSTEM.CNF
+SLUS*
+SLES*
+SCES*
+SLPM*
+SLKA*
+
+# Game folders with copyrighted assets / original dumps
+game/disc/
+game/modules/
+game/analysis/
+*.disasm.txt
+
+# Memory Cards and Saves
+/mc0/
+/mc1/
+
+# Logs and Screenshots
+/logs/
+*.log
+*.png
+*.jpg
+*.jpeg
+*.mp4
+/tmp/
+
+# Tools, Skills and Internal State
+/SKILLS/
+/tools/
+/PS2_PROJECT_STATE.md
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# IDE and System Files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo

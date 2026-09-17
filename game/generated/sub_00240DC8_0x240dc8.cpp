@@ -1,0 +1,56 @@
+#include <stdexcept>
+#include "ps2_runtime_macros.h"
+#include "ps2_runtime.h"
+#include <ps2_recompiled_functions.h>
+#include <ps2_recompiled_stubs.h>
+
+#include "ps2_syscalls.h"
+#include "ps2_stubs.h"
+
+#ifdef PS2_FUNCTION_LOG_TRACKER
+#include "ps2_log.h"
+#endif
+
+// Function: sub_00240DC8
+// Address: 0x240dc8 - 0x240de0
+void sub_00240DC8_0x240dc8(uint8_t* rdram, R5900Context* ctx, PS2Runtime *runtime) {
+#ifdef PS2_FUNCTION_LOG_TRACKER
+    PS_LOG_ENTRY("sub_00240DC8_0x240dc8");
+#endif
+
+    ctx->pc = 0x240dc8u;
+
+    // 0x240dc8: 0x78830000  lq          $v1, 0x0($a0)
+    ctx->pc = 0x240dc8u;
+    SET_GPR_VEC(ctx, 3, READ128(ADD32(GPR_U32(ctx, 4), 0)));
+    // 0x240dcc: 0x3c020016  lui         $v0, 0x16
+    ctx->pc = 0x240dccu;
+    SET_GPR_S32(ctx, 2, (int32_t)((uint32_t)22 << 16));
+    // 0x240dd0: 0x244236c0  addiu       $v0, $v0, 0x36C0
+    ctx->pc = 0x240dd0u;
+    SET_GPR_S32(ctx, 2, (int32_t)ADD32(GPR_U32(ctx, 2), 14016));
+    // 0x240dd4: 0x3e00008  jr          $ra
+    ctx->pc = 0x240DD4u;
+    {
+        const uint32_t jumpTarget = GPR_U32(ctx, 31);
+        ctx->pc = 0x240DD8u;
+        ctx->in_delay_slot = true;
+        ctx->branch_pc = 0x240DD4u;
+        // 0x240dd8: 0x7c4300a0  sq          $v1, 0xA0($v0) (Delay Slot)
+        WRITE128(ADD32(GPR_U32(ctx, 2), 160), GPR_VEC(ctx, 3));
+        ctx->in_delay_slot = false;
+        ctx->pc = jumpTarget;
+        #if defined(PS2X_STRICT_RETURN_DIAGNOSTICS) && PS2X_STRICT_RETURN_DIAGNOSTICS
+        (void)runtime->dispatchGuestBranch(rdram, ctx, jumpTarget, 0x240DD4u, 0u, PS2Runtime::GuestBranchKind::Return, "JR $ra");
+        return;
+        #else
+        ctx->pc = jumpTarget;
+        return;
+        #endif
+    }
+    ctx->pc = 0x240DDCu;
+    // 0x240ddc: 0x0  nop
+    ctx->pc = 0x240ddcu;
+    // NOP
+    ctx->pc = 0x240de0u;
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "path": "SYSTEM.CNF",
+    "lba": 276,
+    "size": 57
+  },
+  {
+    "path": "IOPRP300.IMG",
+    "lba": 277,
+    "size": 278305
+  },
+  {
+    "path": "SLUS_210.59",
+    "lba": 413,
+    "size": 689304
+  },
+  {
+    "path": "TK5DATA4.BIN",
+    "lba": 750,
+    "size": 179368
+  },
+  {
+    "path": "TK5DATA5.BIN",
+    "lba": 838,
+    "size": 422901760
+  },
+  {
+    "path": "TK5DATA0.BIN",
+    "lba": 207333,
+    "size": 2072586240
+  },
+  {
+    "path": "TK5DATA1.BIN",
+    "lba": 1219338,
+    "size": 1297731584
+  },
+  {
+    "path": "TK5DATA3.BIN",
+    "lba": 1852996,
+    "size": 422901760
+  },
+  {
+    "path": "IRXARC.BIN",
+    "lba": 2059491,
+    "size": 305024
+  },
+  {
+    "path": "TK5DATA2.BIN",
+    "lba": 2059640,
+    "size": 244426640
+  }
+]
